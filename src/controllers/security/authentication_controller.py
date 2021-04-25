@@ -13,7 +13,7 @@ def authentication_controller(
     controller = Blueprint("authentication_controller", __name__)
 
     # cors
-    CORS(controller, resources={r"/api/*": {"origins": "*"}})
+    CORS(controller, resources={r"/security/auth/*": {"origins": "*"}})
 
     @controller.route("security/auth/token", methods=["POST"])
     def authentication():

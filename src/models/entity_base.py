@@ -2,6 +2,7 @@ from mongoengine import Document, DateTimeField
 import datetime
 import json
 
+
 class EntityBase(Document):
     """
     modelo base de persistencia de los modelos
@@ -9,7 +10,7 @@ class EntityBase(Document):
 
     dateTimeFormat = "%Y-%m-%dT%H:%M:%SZ"
     meta = {"abstract": True, "strict": False}
-    
+
     created_at = DateTimeField(default=datetime.datetime.utcnow)
     updated_at = DateTimeField(default=datetime.datetime.utcnow)
 
@@ -23,6 +24,10 @@ class EntityBase(Document):
         base_json = json.loads(self.to_json(use_db_field=False))
         base_json["created_at"] = self.created_at.strftime(EntityBase.dateTimeFormat)
         base_json["updated_at"] = self.updated_at.strftime(EntityBase.dateTimeFormat)
+
+        if "id" in base_json:
+            base_json["id"] = str(self.id)
+
         if "_id" in base_json:
             base_json.pop("_id")
         return base_json

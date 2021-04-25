@@ -4,7 +4,6 @@ from .sales_rep import SalesRep
 
 
 class AirFreightCompany(EntityBase):
-
     name = StringField(required=True)
     address = StringField(required=True)
     countries_wh_presence = ListField(StringField())
