@@ -1,0 +1,13 @@
+settings:
+    production : True
+security:
+    secret_key: "pruebafinkargo_docker"
+    session_time: 60
+    seeds:
+        user:
+            login: root
+            pass: finkargo
+mongo:
+    host: mongodb
+    database: finkargo_app
+    port: 27017

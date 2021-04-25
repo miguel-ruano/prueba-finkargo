@@ -1,0 +1,33 @@
+version: '3.5'
+volumes: 
+    finkargomongo:
+        external: false
+networks: 
+    default:
+        name: finkargo_app
+        driver: bridge
+services: 
+    mongo_server:
+        container_name: finkargo_mongo_server
+        image: mongo:4.2.2
+        privileged: true
+        tty: true
+        volumes: 
+            - 'finkargomongo:/data/db'
+        networks: 
+            default:
+                aliases: 
+                    - 'mongodb'
+        restart: "no"
+    app:
+        container_name: finkargo_app
+        build: .
+        privileged: true
+        tty: true
+        networks: 
+            default:
+                aliases: 
+                    - 'app'
+        restart: "no"
+        ports: 
+            - "5000:5000"
