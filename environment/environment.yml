@@ -1,0 +1,6 @@
+settings:
+    production : False
+mongo:
+    host: localhost
+    database: nanopubs
+    port: 27017

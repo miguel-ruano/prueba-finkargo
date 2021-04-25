@@ -1,0 +1,8 @@
+Flask==1.1.2
+Flask-Cors==3.0.9
+Flask-Compress==1.7.0
+dependency-injector==4.0.0
+PyYAML>=5.4
+mongoengine==0.20.0
+pytest==6.1.2
+mongomock==3.21.0
