@@ -1,4 +1,13 @@
 from src.providers import AirFreightCompanyRequest
+import base64
+
+user = {"login": "test", "pass": "passwordtest"}
+userb64 = (
+    base64.b64encode((user["login"] + ":" + user["pass"]).encode("ascii"))
+).decode("ascii")
+userb64_bad = (
+    base64.b64encode((user["login"] + ":" + user["pass"]+"badddd").encode("ascii"))
+).decode("ascii")
 
 sales_rep_json = {
     "firstname": "Andres",

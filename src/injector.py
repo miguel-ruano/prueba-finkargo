@@ -23,7 +23,7 @@ class Injector(containers.DeclarativeContainer):
     air_freight_companies_repository = providers.Singleton(AirFreightCompaniesRepository)
 
     security_service = providers.Singleton(
-        SecurityService, users_repository=users_repository
+        SecurityService, users_repository=users_repository, security = env.security
     )
 
     air_freight_companies_admin_service = providers.Singleton(

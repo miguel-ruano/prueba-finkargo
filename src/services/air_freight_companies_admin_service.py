@@ -51,7 +51,14 @@ class AirFreightCompanyAdminService:
             raise Exception("error")
 
     def search(self, _filter: str):
-        return self.air_freight_companies_repository.search(_filter=_filter)
+        return (
+            self.air_freight_companies_repository.search(_filter=_filter)
+            if _filter != None and len(_filter) > 0
+            else self.get_all()
+        )
+
+    def get_all(self):
+        return self.air_freight_companies_repository.get_all()
 
     def delete(self, id: str) -> bool:
         if id == None or len(id) <= 0:

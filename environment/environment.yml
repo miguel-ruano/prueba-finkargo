@@ -1,6 +1,13 @@
 settings:
     production : False
+security:
+    secret_key: "pruebafinkargo"
+    session_time: 60
+    seeds:
+        user:
+            login: root
+            pass: finkargo
 mongo:
     host: localhost
-    database: nanopubs
+    database: pruebafinkargo
     port: 27017

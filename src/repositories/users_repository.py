@@ -12,3 +12,6 @@ class UsersRepository:
 
     def get_by_login(self, login:str) -> User :
         return User.objects(login = login).first()
+
+    def exist_by_login(self, login:str) -> bool:
+        return User.objects(login = login).first() != None

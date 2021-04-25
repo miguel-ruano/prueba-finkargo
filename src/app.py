@@ -22,11 +22,14 @@ def application(
 
     # inicialize flask app
     app = Flask(__name__)
+    app.config['SECRET_KEY'] = injector.env()["security"]["secret_key"]
     # compress init
     compress.init_app(app)
     app.injector = injector
     # controllers
     controllers.register(app, injector)
+    # seeds
+    injector.security_service().init_seeds()
 
     if dev:
         run_dev(app)

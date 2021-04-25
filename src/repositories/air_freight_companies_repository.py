@@ -22,6 +22,9 @@ class AirFreightCompaniesRepository:
             AirFreightCompany.objects(name={"$regex": _filter, "$options": "i"})
         )
 
+    def get_all(self) -> list:
+        return list(AirFreightCompany.objects())
+
     def delete(self, company: AirFreightCompany) -> bool:
         if company != None:
             company.delete()
