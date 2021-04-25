@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "8634f0b6-3b07-4fd3-aa91-dbd9a08485ec",
+		"name": "FindKargo Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticacion",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "finkargo",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "root",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/security/auth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"security",
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta de companias",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-tokens",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoicm9vdCIsImV4cCI6MTYxOTM5NzA2MH0.XS629wbLfesU6sFv6jkJD_xjtoCCci5Rlv0MJex8iYo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/admin/airfreightcompanies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"admin",
+						"airfreightcompanies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion de companias",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-access-tokens",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoicm9vdCIsImV4cCI6MTYxOTM5NzA2MH0.XS629wbLfesU6sFv6jkJD_xjtoCCci5Rlv0MJex8iYo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Finkargo airline copy\",\n    \"address\": \"Bogotá Colombia\",\n    \"countries_wh_presence\": [\"Colombia\", \"México\"],\n    \"sales_rep\": {\n        \"firstname\": \"Andres\",\n        \"lastname\": \"Gonzales\",\n        \"cell_phone\": \"+57 317 5386180\",\n        \"email\": \"andres.gonzalez@finkargo.com\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/admin/airfreightcompanies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"admin",
+						"airfreightcompanies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizacion de companias",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-tokens",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoicm9vdCIsImV4cCI6MTYxOTM5NzA2MH0.XS629wbLfesU6sFv6jkJD_xjtoCCci5Rlv0MJex8iYo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"6085fc8c03a80c4eee88e1d4\",\n    \"name\": \"Finkargo airline global\",\n    \"address\": \"Bogotá Colombia\",\n    \"countries_wh_presence\": [\"Colombia\", \"México\"],\n    \"sales_rep\": {\n        \"firstname\": \"Andres\",\n        \"lastname\": \"Gonzales\",\n        \"cell_phone\": \"+57 317 5386180\",\n        \"email\": \"andres.gonzalez@finkargo.com\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/admin/airfreightcompanies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"admin",
+						"airfreightcompanies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminacion de companias",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-access-tokens",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoicm9vdCIsImV4cCI6MTYxOTM5NzA2MH0.XS629wbLfesU6sFv6jkJD_xjtoCCci5Rlv0MJex8iYo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/admin/airfreightcompanies/6085fcfa03a80c4eee88e1d5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"admin",
+						"airfreightcompanies",
+						"6085fcfa03a80c4eee88e1d5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
