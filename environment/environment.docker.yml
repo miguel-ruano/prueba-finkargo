@@ -1,5 +1,5 @@
 settings:
-    production : True
+    production: True
 security:
     secret_key: "pruebafinkargo_docker"
     session_time: 60

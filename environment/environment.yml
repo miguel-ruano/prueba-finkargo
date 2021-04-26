@@ -11,3 +11,5 @@ mongo:
     host: localhost
     database: pruebafinkargo
     port: 27017
+    # user: <username>
+    # password: <userpassword>
